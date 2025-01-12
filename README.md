@@ -19,7 +19,7 @@ We adopt bert-base-uncased from huggingface, which can be installed using pip as
 pip install transformers
 ```
 ## Warm-up
-To warm-up the model:
+To warm-up the model as illustrated in our [paper](https://arxiv.org/abs/2403.16539):
 ```Console
     python train_referit3d_pre.py
     -scannet-file $PATH_OF_SCANNET_FILE$ \
@@ -36,7 +36,6 @@ To warm-up the model:
     --view_number 4 \
     --rotate_number 4 \
     --label-lang-sup True \
-    --rel-k 0 \
     --multilabel-pretraining True \
     --cascading True \
     --order-len 4 \
@@ -63,7 +62,6 @@ To train on either Nr3d or Sr3d dataset:
     --view_number 4 \
     --rotate_number 4 \
     --label-lang-sup True \
-    --rel-k 0 \
     --fine-tune True \
     --multilabel-pretraining True \
     --lang-multilabel True \
@@ -94,7 +92,6 @@ To test on either Nr3d or Sr3d dataset:
     --view_number 4 \
     --rotate_number 4 \
     --label-lang-sup True \
-    --rel-k 0 \
     --multilabel-pretraining True \
     --lang-multilabel True \
     --cascading True \

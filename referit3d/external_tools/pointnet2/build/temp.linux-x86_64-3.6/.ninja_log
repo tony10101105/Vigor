@@ -1,0 +1,10 @@
+# ninja log v5
+0	25288	1691560624863048838	/work/b08901133/tony/MVT-3DVG/referit3d/external_tools/pointnet2/build/temp.linux-x86_64-3.6/_ext_src/src/bindings.o	bc9e776ab3c3fa97
+1	31417	1691560629246426681	/work/b08901133/tony/MVT-3DVG/referit3d/external_tools/pointnet2/build/temp.linux-x86_64-3.6/_ext_src/src/group_points.o	846ab74643befe99
+1	33951	1691560631652351625	/work/b08901133/tony/MVT-3DVG/referit3d/external_tools/pointnet2/build/temp.linux-x86_64-3.6/_ext_src/src/interpolate.o	dc69c1ff306ab8f6
+1	33974	1691560633850840772	/work/b08901133/tony/MVT-3DVG/referit3d/external_tools/pointnet2/build/temp.linux-x86_64-3.6/_ext_src/src/sampling.o	d73405e72669927d
+3	34397	1691560636368910493	/work/b08901133/tony/MVT-3DVG/referit3d/external_tools/pointnet2/build/temp.linux-x86_64-3.6/_ext_src/src/ball_query.o	5e455b0115ab543b
+4	47967	1691560649930856787	/work/b08901133/tony/MVT-3DVG/referit3d/external_tools/pointnet2/build/temp.linux-x86_64-3.6/_ext_src/src/ball_query_gpu.o	e03c1c0a24b97629
+29232	64278	1691560666244108944	/work/b08901133/tony/MVT-3DVG/referit3d/external_tools/pointnet2/build/temp.linux-x86_64-3.6/_ext_src/src/group_points_gpu.o	63e6bc78ca8cf007
+31420	74794	1691560675431009175	/work/b08901133/tony/MVT-3DVG/referit3d/external_tools/pointnet2/build/temp.linux-x86_64-3.6/_ext_src/src/sampling_gpu.o	f60bf9138a9e0827
+33954	74818	1691560676782597688	/work/b08901133/tony/MVT-3DVG/referit3d/external_tools/pointnet2/build/temp.linux-x86_64-3.6/_ext_src/src/interpolate_gpu.o	57a6e4eb16c869de

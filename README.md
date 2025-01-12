@@ -72,7 +72,7 @@ To train on either Nr3d or Sr3d dataset:
 ## Validation
 After each epoch of the training, the program automatically evaluates the performance of the current model. The code saves the last model in the training as **last_model.pth**, and the best model as **best_model.pth**.
 
-## Test
+## Testing
 To test on either Nr3d or Sr3d dataset:
 ```Console
     python referit3d/scripts/train_referit3d.py \
@@ -110,6 +110,6 @@ To test on either Nr3d or Sr3d dataset:
 ```
 
 ## Credits
-The code is built based on the following repository:
+Our code is mainly built on:
 * [ReferIt3D](https://github.com/referit3d/referit3d)
 * [MVT](https://github.com/sega-hsj/MVT-3DVG)

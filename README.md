@@ -119,7 +119,5 @@ To test on either Nr3d or Sr3d dataset:
 }
 ```
 
-## Credits
-Our code is mainly built on:
-* [ReferIt3D](https://github.com/referit3d/referit3d)
-* [MVT](https://github.com/sega-hsj/MVT-3DVG)
+## Credit
+Our code is mainly built on [ReferIt3D](https://github.com/referit3d/referit3d) and [MVT](https://github.com/sega-hsj/MVT-3DVG). Thanks for their excellent work!

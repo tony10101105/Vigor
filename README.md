@@ -111,13 +111,20 @@ To test on either Nr3d or Sr3d dataset:
 
 ## Citation
 ```
-@article{wu2024dora,
-  title={DOrA: 3D Visual Grounding with Order-Aware Referring},
+@inproceedings{wu2024dora,
+  title={Data-Efficient 3D Visual Grounding via Order-Aware Referring},
   author={Wu, Tung-Yu and Huang, Sheng-Yu and Wang, Yu-Chiang Frank},
-  journal={arXiv preprint arXiv:2403.16539},
-  year={2024}
+  booktitle={Proceedings of the International Conference on Learning Representations (ICLR)},
+  year={2025}
 }
 ```
+
+@inproceedings{wu2024u,
+  title={U-shaped and Inverted-U Scaling behind Emergent Abilities of Large Language Models},
+  author={Wu, Tung-Yu and Lo, Pei-Yu},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year={2025}
+}
 
 ## Credit
 Our code is mainly built on [ReferIt3D](https://github.com/referit3d/referit3d) and [MVT](https://github.com/sega-hsj/MVT-3DVG). Thanks for their excellent work!

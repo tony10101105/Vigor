@@ -1,5 +1,5 @@
 # Data-Efficient 3D Visual Grounding via Order-Aware Referring
-Official code of the paper [Data-Efficient 3D Visual Grounding via Order-Aware Referring](https://arxiv.org/abs/2403.16539)
+Official code of the paper [Data-Efficient 3D Visual Grounding via Order-Aware Referring](https://arxiv.org/abs/2403.16539).
 
 ## News
 - (Oct. 2024) The paper has been accepted to the WACV'25 as a main conference paper.
@@ -13,10 +13,19 @@ This paper presents a data-efficient 3D visual grounding framework, Vigor, which
 </p>
 
 ## Setup
-Please refer the installation and data preparation from [referit3d](https://github.com/referit3d/referit3d).
+```bash
+conda create -n vigor python=3.6.9
+conda activate vigor
+conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
+git clone https://github.com/tony10101105/Vigor.git
+cd Vigor
+pip install -e .
+```
+## Datasets
+Please follow the data preparation of [referit3d](https://github.com/referit3d/referit3d).
 
 We adopt bert-base-uncased from huggingface, which can be installed using pip as follows:
-```Console
+```bash
 pip install transformers
 ```
 ## Warm-up

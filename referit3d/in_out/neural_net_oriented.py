@@ -62,7 +62,7 @@ def load_referential_data(args, referit_csv, scans_split):
     # referit_data = pd.read_csv(referit_csv)
     referit_data_train = pd.read_csv(referit_csv)
     if 'nr3d' in referit_csv:
-        referit_data_test = pd.read_csv(referit_csv.replace('nr3d_train_LLM_step4_485_0.1', 'nr3d_test_LLM_step4_485'))
+        referit_data_test = pd.read_csv(referit_csv.replace('nr3d_train_LLM_step4_485_0.01', 'nr3d_test_LLM_step4_485'))
     else:
         referit_data_test = pd.read_csv(referit_csv.replace('sr3d_train_LLM_step4_485_0.01', 'sr3d_test_LLM_step4_485'))
 

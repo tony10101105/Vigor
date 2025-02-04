@@ -10,7 +10,7 @@ pd.options.mode.chained_assignment = None
 
 
 ### parameters
-in_csv = 'nr3d_train.csv'
+in_csv = 'nr3d_train.csv' # this file is from referit3d challenge: https://referit3d.github.io/benchmarks.html
 out_csv = 'nr3d_train_LLM_step1.csv'
 key = 'YOUR_KEY' # OpenAI key
 organization = 'YOUR_ORG'

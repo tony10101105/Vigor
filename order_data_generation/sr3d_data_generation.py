@@ -19,7 +19,7 @@ clip_model, _ = clip.load('ViT-B/16', device='cuda')
 
 
 ### parameters
-in_csv = 'sr3d_train.csv'
+in_csv = 'sr3d_train.csv' # this file is from referit3d challenge: https://referit3d.github.io/benchmarks.html
 out_csv = 'sr3d_train_LLM_step4_485.csv'
 ###
 

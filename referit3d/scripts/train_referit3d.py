@@ -117,7 +117,6 @@ if __name__ == '__main__':
         ]
         if args.multilabel_pretraining:
             param_list.append({'params':model.feat_to_multilabel_clf.parameters(), 'lr': args.init_lr})
-            param_list.append({'params':model.feat_to_coor_reg.parameters(), 'lr': args.init_lr})
         if not args.label_lang_sup:
             param_list.append({'params':model.obj_clf.parameters(), 'lr': args.init_lr})
         if args.lang_multilabel:

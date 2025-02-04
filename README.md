@@ -22,7 +22,7 @@ cd Vigor
 pip install -e .
 ```
 ## Datasets
-Please follow the data preparation of [referit3d](https://github.com/referit3d/referit3d). After that, you should have processed pkl scannet files and referit3d csv files. You can also download the already splitted csv files from [referit3d benchmark](https://referit3d.github.io/benchmarks.html).
+Please follow the data preparation of [referit3d](https://github.com/referit3d/referit3d). After that, you should have processed pkl scannet files and referit3d csv files. You can also download the already splitted csv files from [referit3d benchmark](https://referit3d.github.io/benchmarks.html). We have put our referential-order-contained csv files under *$ROOT_DIR$/Vigor/referit3d/data/csv_data*.
 
 ## Warm-up
 To warm-up the model as illustrated in our [paper](https://arxiv.org/abs/2403.16539):

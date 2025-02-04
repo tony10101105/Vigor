@@ -1,2 +1,5 @@
 .DS_Store
 __pycache__/
+referit3d.egg-info/
+referit3d/logs/
+referit3d/data/scannet

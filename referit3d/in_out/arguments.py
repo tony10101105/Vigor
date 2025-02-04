@@ -65,7 +65,7 @@ def parse_arguments(notebook_options=None):
     #
     # Model arguments
     #
-    parser.add_argument('--bert-pretrain-path', type=str, default="/mnt/proj58/sjhuang/grounding3d/distillbert")
+    parser.add_argument('--bert-pretrain-path', type=str, default='bert-base-uncased')
     
     parser.add_argument('--view_number', type=int, default=4)
     parser.add_argument('--rotate_number', type=int, default=4)

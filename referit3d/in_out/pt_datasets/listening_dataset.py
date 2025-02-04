@@ -31,7 +31,7 @@ class ListeningDataset(Dataset):
         if not check_segmented_object_order(scans):
             raise ValueError
 
-        with open('/work/b08901133/tony/MVT-3DVG/referit3d/in_out/pt_datasets/cls_results.json') as fid:
+        with open('data/butd_pcnet_cls_results.json') as fid:
             self.cls_results = json.load(fid)
 
         self.scannetconfig_butd = ScannetDatasetConfig('butd')

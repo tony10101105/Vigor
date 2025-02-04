@@ -85,9 +85,7 @@ def single_epoch_train(model, data_loader, criteria, optimizer, device, pad_idx,
         batch['lang_tokens'] = lang_tokens
 
         # Forward pass
-        LOSS, CLASS_LOGITS, LANG_LOGITS, LOGITS, flag = model(batch, epoch)
-        if flag == True:
-            continue
+        LOSS, CLASS_LOGITS, LANG_LOGITS, LOGITS = model(batch, epoch)
         LOSS = LOSS.mean()
 
         res = {}

@@ -5,7 +5,7 @@ Official code of the paper [Data-Efficient 3D Visual Grounding via Order-Aware R
 - (Oct. 2024) The paper has been accepted to the WACV'25 as a main conference paper.
 
 ## Overview
-This paper presents a data-efficient 3D visual grounding framework, Vigor, which leverages the referential order to achieve high grounding accuracy using only a small amount of point cloud-description pairs. Vigor utilizes the LLMs to exploit the referential order of a natural language description in a zero-shot manner. The extracted referential order points from the anchor objects to the target object and helps Vigor gradually locate the correct target object through customized transformer layers. We further propose a simple yet effective order-aware warm-up method to pre-train the model. The warm-up method and the referential order largely reduce needed point cloud-description pairs. Vigor surpasses many previous full-data methods using only 1% of training data.
+This paper presents a data-efficient 3D visual grounding framework, Vigor, which leverages the referential order to achieve high grounding accuracy using only a small amount of point cloud-description pairs. Vigor utilizes LLMs to exploit the referential order of a natural language description. The extracted referential order points from the anchor objects to the target object and helps Vigor gradually locate the correct target object through customized transformer blocks. We further propose an order-aware warm-up method to pre-train the model. Vigor surpasses many previous full-data models using only 1% of training data.
 
 <p float="left">
   <img src="referential_order.png" width="800" />
@@ -22,7 +22,7 @@ cd Vigor
 pip install -e .
 ```
 ## Datasets
-Please follow the data preparation of [referit3d](https://github.com/referit3d/referit3d).
+Please follow the data preparation of [referit3d](https://github.com/referit3d/referit3d). After that, you should have processed pkl scannet files and referit3d csv files. You can also download the already splitted csv files from [referit3d benchmark](https://referit3d.github.io/benchmarks.html).
 
 ## Warm-up
 To warm-up the model as illustrated in our [paper](https://arxiv.org/abs/2403.16539):

@@ -114,7 +114,7 @@ python scripts/train_referit3d.py \
 @inproceedings{wu2024dora,
   title={Data-Efficient 3D Visual Grounding via Order-Aware Referring},
   author={Wu, Tung-Yu and Huang, Sheng-Yu and Wang, Yu-Chiang Frank},
-  booktitle={Proceedings of the International Conference on Learning Representations (ICLR)},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
   year={2025}
 }
 ```

@@ -40,7 +40,7 @@ python scripts/train_referit3d_pre.py \
 --encoder-layer-num 3 \
 --decoder-layer-num 4 \
 --decoder-nhead-num 12 \
---gpu "0" \
+--gpu '0'\
 --view_number 4 \
 --rotate_number 4 \
 --label-lang-sup True \
@@ -65,7 +65,7 @@ python scripts/train_referit3d.py \
 --encoder-layer-num 3 \
 --decoder-layer-num 4 \
 --decoder-nhead-num 8 \
---gpu "0" \
+--gpu '0' \
 --view_number 4 \
 --rotate_number 4 \
 --label-lang-sup True \
@@ -95,7 +95,7 @@ python referit3d/scripts/train_referit3d.py \
 --encoder-layer-num 3 \
 --decoder-layer-num 4 \
 --decoder-nhead-num 8 \
---gpu "0" \
+--gpu '0' \
 --view_number 4 \
 --rotate_number 4 \
 --label-lang-sup True \

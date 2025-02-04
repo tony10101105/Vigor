@@ -25,7 +25,7 @@ python setup.py install
 ```
 ## Datasets
 Please follow the data preparation of [referit3d](https://github.com/referit3d/referit3d). After that, you should have processed pkl scannet files and referit3d csv files. You can also download the already splitted csv files from [referit3d benchmark](https://referit3d.github.io/benchmarks.html). We have put our referential-order-contained csv files under *$ROOT_DIR$/Vigor/referit3d/data/csv_data*.  
-Our referential-order-contained csv files are named as *{dataset_name}\_{split}\_LLM\_step4\_{class number}\_{percentage}.csv*. The *class number* is that, since the LLM raw outputs are not restricted, we project outputs to a predefined object class name pool. 485 is the pool adopted by [BUTD-DETR](https://github.com/nickgkan/butd_detr).
+Our referential-order-contained csv files are named as `{dataset_name}\_{split}\_LLM\_step4\_{class number}\_{percentage}.csv`. The *class number* is that, since the LLM raw outputs are not restricted, we project outputs to a predefined object class name pool. 485 is the pool adopted by [BUTD-DETR](https://github.com/nickgkan/butd_detr).
 
 ## Warm-up
 To warm-up the model as illustrated in our paper:
@@ -50,7 +50,7 @@ python scripts/train_referit3d_pre.py \
 --order-len 4 \
 --max-train-epochs 300
 ```
-After this, you will get a warm-up model under logs/warmup/ named as *best_model.pth*, which is used in the next step training.
+After this, you will get a warm-up model under *logs/warmup/* named as `best_model.pth`, which is used in the next step training.
 
 ## Training
 To train on NR3D or SR3D dataset:
@@ -80,7 +80,7 @@ python scripts/train_referit3d.py \
 ```
 
 ## Validation
-After each epoch of the training, the program automatically evaluates the model performance and saves the last model in the training as **last_model.pth** and the best model as **best_model.pth**.
+After each epoch of the training, the program automatically evaluates the model performance and saves the last model in the training as `last_model.pth` and the best model as `best_model.pth`.
 
 ## Testing
 To test on NR3D or SR3D dataset:

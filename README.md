@@ -34,7 +34,7 @@ python scripts/train_referit3d_pre.py \
 -scannet-file $PATH_OF_SCANNET_FILE$ \
 -referit3D-file 'none' \
 --bert-pretrain-path 'bert-base-uncased' \
---log-dir logs/ \
+--log-dir logs/warmup/ \
 --n-workers 2 \
 --unit-sphere-norm True \
 --batch-size 24 \
@@ -50,7 +50,7 @@ python scripts/train_referit3d_pre.py \
 --order-len 4 \
 --max-train-epochs 300
 ```
-After this, you will get a warm-up model under logs/ named as *best_model.pth*, which is used in the next step training.
+After this, you will get a warm-up model under logs/warmup/ named as *best_model.pth*, which is used in the next step training.
 
 ## Training
 To train on NR3D or SR3D dataset:
@@ -60,7 +60,7 @@ python scripts/train_referit3d.py \
 -referit3D-file $PATH_OF_CSV_FILE$ \
 --resume-path $PATH_OF_WARMUPED_PTH_FILE$ \
 --bert-pretrain-path 'bert-base-uncased' \
---log-dir logs/ \
+--log-dir logs/train/ \
 --n-workers 2 \
 --unit-sphere-norm True \
 --batch-size 24 \
@@ -91,7 +91,7 @@ python scripts/train_referit3d.py \
 -referit3D-file $PATH_OF_CSV_FILE$ \
 --resume-path $PATH_OF_TRAINED_PTH_FILE$ \
 --bert-pretrain-path 'bert-base-uncased' \
---log-dir logs/ \
+--log-dir logs/test/ \
 --n-workers 2 \
 --unit-sphere-norm True \
 --batch-size 24 \

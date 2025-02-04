@@ -24,10 +24,6 @@ pip install -e .
 ## Datasets
 Please follow the data preparation of [referit3d](https://github.com/referit3d/referit3d).
 
-We adopt bert-base-uncased from huggingface, which can be installed using pip as follows:
-```bash
-pip install transformers
-```
 ## Warm-up
 To warm-up the model as illustrated in our [paper](https://arxiv.org/abs/2403.16539):
 ```Console

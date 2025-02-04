@@ -29,11 +29,10 @@ Our referential-order-contained csv files are named as *{dataset_name}\_{split}\
 
 ## Warm-up
 To warm-up the model as illustrated in our paper:
-
 ```bash
 python scripts/train_referit3d_pre.py \
 -scannet-file $PATH_OF_SCANNET_FILE$ \
--referit3D-file $PATH_OF_CSV_TRAIN_FILE$ \
+-referit3D-file 'none' \
 --bert-pretrain-path 'bert-base-uncased' \
 --log-dir logs/ \
 --n-workers 2 \
@@ -61,7 +60,7 @@ python scripts/train_referit3d.py \
 -referit3D-file $PATH_OF_CSV_FILE$ \
 --resume-path $PATH_OF_WARMUPED_PTH_FILE$ \
 --bert-pretrain-path 'bert-base-uncased' \
---log-dir logs/Vigor \
+--log-dir logs/ \
 --n-workers 2 \
 --unit-sphere-norm True \
 --batch-size 24 \
@@ -89,10 +88,10 @@ To test on NR3D or SR3D dataset:
 python scripts/train_referit3d.py \
 --mode evaluate \
 -scannet-file $PATH_OF_SCANNET_FILE$ \
--referit3D-file $PATH_OF_REFERIT3D_FILE$ \
---resume-path $PATH_OF_WARMUPED_PTH_FILE$ \
+-referit3D-file $PATH_OF_CSV_FILE$ \
+--resume-path $PATH_OF_TRAINED_PTH_FILE$ \
 --bert-pretrain-path 'bert-base-uncased' \
---log-dir logs/Vigor \
+--log-dir logs/ \
 --n-workers 2 \
 --unit-sphere-norm True \
 --batch-size 24 \
@@ -119,13 +118,6 @@ python scripts/train_referit3d.py \
   year={2025}
 }
 ```
-
-@inproceedings{wu2024u,
-  title={U-shaped and Inverted-U Scaling behind Emergent Abilities of Large Language Models},
-  author={Wu, Tung-Yu and Lo, Pei-Yu},
-  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
-  year={2025}
-}
 
 ## Credit
 Our code is mainly built on [ReferIt3D](https://github.com/referit3d/referit3d) and [MVT](https://github.com/sega-hsj/MVT-3DVG). Thanks for their excellent work!

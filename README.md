@@ -25,6 +25,7 @@ python setup.py install
 ```
 ## Datasets
 Please follow the data preparation of [referit3d](https://github.com/referit3d/referit3d). After that, you should have processed pkl scannet files and referit3d csv files. You can also download the already splitted csv files from [referit3d benchmark](https://referit3d.github.io/benchmarks.html). We have put our referential-order-contained csv files under *$ROOT_DIR$/Vigor/referit3d/data/csv_data*.
+Our referential-order-contained csv files are named as {}.csv
 
 ## Warm-up
 To warm-up the model as illustrated in our [paper](https://arxiv.org/abs/2403.16539):
@@ -50,6 +51,7 @@ python scripts/train_referit3d_pre.py \
 --order-len 4 \
 --max-train-epochs 300
 ```
+After this, you will get a warm-up model in logs/ named as *best_model.pth*, which is used in the next step training.
 
 ## Training
 To train on NR3D or SR3D dataset:
@@ -57,7 +59,7 @@ To train on NR3D or SR3D dataset:
 python scripts/train_referit3d.py \
 -scannet-file $PATH_OF_SCANNET_FILE$ \
 -referit3D-file $PATH_OF_CSV_FILE$ \
---resume-path $PATH_OF_WARMUPED_VIGOR$ \
+--resume-path $PATH_OF_WARMUPED_PTH_FILE$ \
 --bert-pretrain-path 'bert-base-uncased' \
 --log-dir logs/Vigor \
 --n-workers 2 \
@@ -74,7 +76,8 @@ python scripts/train_referit3d.py \
 --multilabel-pretraining True \
 --lang-multilabel True \
 --cascading True \
---order-len 4
+--order-len 4 \
+--max-train-epochs 100
 ```
 
 ## Validation
@@ -87,7 +90,7 @@ python scripts/train_referit3d.py \
 --mode evaluate \
 -scannet-file $PATH_OF_SCANNET_FILE$ \
 -referit3D-file $PATH_OF_REFERIT3D_FILE$ \
---resume-path $PATH_OF_WARMUPED_VIGOR$ \
+--resume-path $PATH_OF_WARMUPED_PTH_FILE$ \
 --bert-pretrain-path 'bert-base-uncased' \
 --log-dir logs/Vigor \
 --n-workers 2 \

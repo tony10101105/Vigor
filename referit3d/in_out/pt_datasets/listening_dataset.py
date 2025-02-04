@@ -4,10 +4,8 @@ import ast
 from random import sample 
 from torch.utils.data import Dataset
 from functools import partial
-from .utils import dataset_to_dataloader, max_io_workers
 
-# the following will be shared on other datasets too if not, they should become part of the ListeningDataset
-# maybe make SegmentedScanDataset with only static functions and then inherit.
+from .utils import dataset_to_dataloader, max_io_workers
 from .utils import check_segmented_object_order, sample_scan_object, pad_samples
 from .utils import instance_labels_of_context, mean_rgb_unit_norm_transform
 from .utils import ScannetDatasetConfig
@@ -24,7 +22,7 @@ class ListeningDataset(Dataset):
         self.max_seq_len = max_seq_len
         self.points_per_object = points_per_object
         self.max_distractors = max_distractors
-        self.max_context_size = self.max_distractors + 1  # to account for the target.
+        self.max_context_size = self.max_distractors + 1 # to account for the target.
         self.class_to_idx = class_to_idx
         self.visualization = visualization
         self.object_transformation = object_transformation
@@ -32,7 +30,7 @@ class ListeningDataset(Dataset):
             raise ValueError
 
         with open('data/butd_pcnet_cls_results.json') as fid:
-            self.cls_results = json.load(fid)
+            self.cls_results = json.load(fid) # the scannet object classification results provided by butd-detr
 
         self.scannetconfig_butd = ScannetDatasetConfig('butd')
         self.multilabel_pretraining = multilabel_pretraining
@@ -164,14 +162,12 @@ class ListeningDataset(Dataset):
         order = LLM_info['referential_order']
         res['ori_order_len'] = len(order)
         
-        ## pad order to len(order) = self.order_len
+        # pad order
         if order == []:
             tmp = list(set(self.scannetconfig_butd.type2class.keys()).difference(set([o.instance_label for o in context])))
             order = sample(tmp, 1) # this will lead to a all-zero mask
-
         while len(order) > self.order_len:
             del order[0]
-            
         if self.order_len == 5:
             if len(order) == 1:
                 order *= self.order_len
@@ -209,7 +205,6 @@ class ListeningDataset(Dataset):
                 order *= self.order_len
         elif self.order_len == 1:
             pass
-        ## pad order to len(order) = self.order_len
 
         res['order_labels'] = np.array([self.scannetconfig_butd.type2class[i] for i in order])
 

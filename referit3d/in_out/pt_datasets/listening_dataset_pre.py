@@ -2,10 +2,8 @@ import numpy as np
 import json
 from torch.utils.data import Dataset
 from functools import partial
-from .utils import dataset_to_dataloader, max_io_workers
 
-# the following will be shared on other datasets too if not, they should become part of the ListeningDataset
-# maybe make SegmentedScanDataset with only static functions and then inherit.
+from .utils import dataset_to_dataloader, max_io_workers
 from .utils import check_segmented_object_order, sample_scan_object, pad_samples
 from .utils import instance_labels_of_context, mean_rgb_unit_norm_transform
 from .utils import ScannetDatasetConfig
@@ -15,26 +13,25 @@ class ListeningDataset(Dataset):
     def __init__(self, scans, max_seq_len, points_per_object, max_distractors,
                  class_to_idx=None, object_transformation=None,
                  multilabel_pretraining=False, lang_multilabel=False,
-                 cascading=False, no_order=False, order_len=4):
+                 cascading=False, order_len=4):
 
         self.scans = scans
         self.max_seq_len = max_seq_len
         self.points_per_object = points_per_object
         self.max_distractors = max_distractors
-        self.max_context_size = self.max_distractors + 1  # to account for the target.
+        self.max_context_size = self.max_distractors + 1 # to account for the target.
         self.class_to_idx = class_to_idx
         self.object_transformation = object_transformation
         if not check_segmented_object_order(scans):
             raise ValueError
         with open('data/butd_pcnet_cls_results.json') as fid:
-            self.cls_results = json.load(fid)
+            self.cls_results = json.load(fid) # the scannet object classification results provided by butd-detr
 
         self.scannetconfig_nr3d = ScannetDatasetConfig('nr3d')
         self.scannetconfig_butd = ScannetDatasetConfig('butd')
         self.lang_multilabel = lang_multilabel
         self.multilabel_pretraining = multilabel_pretraining
         self.cascading = cascading
-        self.no_order = no_order # intentionally shuffle the order. Only for ablation study.
         self.order_len = order_len
 
     def __len__(self):
@@ -258,13 +255,6 @@ class ListeningDataset(Dataset):
         res['target_object'] = order[-1]
         res['anchor_objects'] = 'trivial' # not used
         res['pred_class_mask'] = pred_class_mask
-
-        if self.no_order: # If true, make the order misalign with synthesized sentence to investigate the performance drop
-            order.reverse()
-            synthesized_utterance = "There is a {} in the room, find the {} farthest to it, and then find the {} farthest to that {}, and finally you can see the {} farthest to that {}.".format(
-                order[0], order[1], order[2], order[1], order[3], order[2]
-            )
-
         res['tokens'] = synthesized_utterance
 
         return res
@@ -285,6 +275,7 @@ def make_data_loaders(args, scans_split, class_to_idx, scans, mean_rgb):
         max_distractors = args.max_distractors if split == 'train' else args.max_test_objects - 1
 
         new_scans = {key : scans[key] for key in scans.keys() if key in scans_split[split]}
+        
         # delete some exception scenes
         if split == 'train' and args.order_len >= 5:
             del new_scans['scene0587_00']
@@ -382,7 +373,6 @@ def make_data_loaders(args, scans_split, class_to_idx, scans, mean_rgb):
                                    lang_multilabel=args.lang_multilabel,
                                    multilabel_pretraining=args.multilabel_pretraining,
                                    cascading=args.cascading,
-                                   no_order=args.no_pretrain_ordering,
                                    order_len=args.order_len)
 
         seed = None

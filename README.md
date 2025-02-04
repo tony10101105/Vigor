@@ -20,6 +20,8 @@ conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit
 git clone https://github.com/tony10101105/Vigor.git
 cd Vigor
 pip install -e .
+cd referit3d/external_tools/pointnet2
+python setup.py install
 ```
 ## Datasets
 Please follow the data preparation of [referit3d](https://github.com/referit3d/referit3d). After that, you should have processed pkl scannet files and referit3d csv files. You can also download the already splitted csv files from [referit3d benchmark](https://referit3d.github.io/benchmarks.html). We have put our referential-order-contained csv files under *$ROOT_DIR$/Vigor/referit3d/data/csv_data*.
@@ -28,7 +30,6 @@ Please follow the data preparation of [referit3d](https://github.com/referit3d/r
 To warm-up the model as illustrated in our [paper](https://arxiv.org/abs/2403.16539):
 
 ```bash
-cd referit3d  
 python scripts/train_referit3d_pre.py \
 -scannet-file $PATH_OF_SCANNET_FILE$ \
 -referit3D-file $PATH_OF_CSV_TRAIN_FILE$ \
@@ -82,7 +83,7 @@ After each epoch of the training, the program automatically evaluates the model 
 ## Testing
 To test on NR3D or SR3D dataset:
 ```bash
-python referit3d/scripts/train_referit3d.py \
+python scripts/train_referit3d.py \
 --mode evaluate \
 -scannet-file $PATH_OF_SCANNET_FILE$ \
 -referit3D-file $PATH_OF_REFERIT3D_FILE$ \

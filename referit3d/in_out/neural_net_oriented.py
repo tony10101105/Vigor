@@ -1,3 +1,4 @@
+import re
 import pathlib
 import os.path as osp
 import pandas as pd
@@ -61,10 +62,9 @@ def load_referential_data(args, referit_csv, scans_split):
     """
     # referit_data = pd.read_csv(referit_csv)
     referit_data_train = pd.read_csv(referit_csv)
-    if 'nr3d' in referit_csv:
-        referit_data_test = pd.read_csv(referit_csv.replace('nr3d_train_LLM_step4_485_0.01', 'nr3d_test_LLM_step4_485'))
-    else:
-        referit_data_test = pd.read_csv(referit_csv.replace('sr3d_train_LLM_step4_485_0.01', 'sr3d_test_LLM_step4_485'))
+    
+    test_csv = re.sub(r'_\d+\.\d+', '', referit_csv.replace('train', 'test'))
+    referit_data_test = pd.read_csv(test_csv)
 
     referit_data = pd.concat([referit_data_train, referit_data_test], ignore_index=True, sort=False)
 
